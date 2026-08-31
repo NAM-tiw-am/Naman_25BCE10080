@@ -8,6 +8,18 @@ def docs_loader(folder):
         loader_kwargs={"encoding":"utf-8"},
         ).load()
 
+    md_data=DirectoryLoader(
+        path=folder,
+        glob="**/*.md",
+        loader_cls=TextLoader,
+        loader_kwargs={"encoding":"utf-8"},
+        ).load()
 
+    pdf_data=DirectoryLoader(
+        path=folder,
+        glob="**/*.pdf",
+        loader_cls=PyPDFLoader,
+        ).load()
+
+    docs=md_data+pdf_data+Text_data
     return docs
-
