@@ -1,0 +1,46 @@
+# Project Nimbus: Internal Knowledge Base
+
+**Document Type:** Test Fixture for RAG Evaluation
+**Version:** 1.0
+
+## 1. Overview
+
+Project Nimbus is a fictional internal platform used only to test retrieval-augmented generation systems. It has no relation to any real product. This document contains distinct facts, numbers, and sections so you can verify that a RAG pipeline correctly chunks, embeds, retrieves, and cites the right passages.
+
+## 2. Key Facts
+
+The Nimbus platform was launched internally on **March 14, 2021**. It is maintained by the fictional Cloud Systems Guild, led by team lead **Priya Anand**. The system processes an average of **42,000 requests per day** across three regions: North Zone, Delta Zone, and Harbor Zone. The current uptime target (SLA) is **99.95%**.
+
+## 3. Component Table
+
+| Component         | Owner         | Status     | Version |
+|-------------------|---------------|------------|---------|
+| Ingestion Service  | Team Aurora   | Active     | 3.2.1   |
+| Vector Index       | Team Borealis | Active     | 1.9.0   |
+| Query Router       | Team Cascade  | Deprecated | 2.0.4   |
+| Cache Layer        | Team Aurora   | Active     | 4.1.0   |
+
+## 4. Incident History
+
+On **July 9, 2022**, the Query Router experienced a 47-minute outage caused by a misconfigured load balancer rule. Root cause analysis identified a missing timeout value in the Delta Zone configuration file. A fix was deployed on July 10, 2022, and no repeat incidents have been recorded since.
+
+## 5. Frequently Asked Questions
+
+**Q: Who approves new component deployments?**
+A: Deployments are approved by the Cloud Systems Guild review board, chaired by Priya Anand.
+
+**Q: What is the retry policy for failed ingestion jobs?**
+A: Failed ingestion jobs are retried up to 5 times with exponential backoff starting at 2 seconds.
+
+**Q: Which zone handles the most traffic?**
+A: The North Zone handles the largest share, roughly 55% of total daily requests.
+
+## 6. Appendix: Glossary
+
+- **Vector Index**: A data structure storing embeddings for similarity search.
+- **Cache Layer**: A component that stores frequently accessed query results.
+- **SLA**: Service Level Agreement, the promised uptime percentage.
+
+---
+
+*End of document. This file intentionally mirrors the PDF and TXT test fixtures so you can compare loader behavior (`TextLoader` vs `PyPDFLoader` vs `UnstructuredMarkdownLoader`/`MarkdownHeaderTextSplitter`) on identical content.*
