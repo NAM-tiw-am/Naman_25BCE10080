@@ -1,0 +1,93 @@
+﻿
+SOFTWARE DEVELOPMENT CLUB
+Technical Team
+Task Round  ·  Session 2026–27
+
+General Guidelines
+    • Choose one track: Web Development, AI/ML, Cybersecurity, or Frontend & UI/UX. Pick the one you're most excited to work in. This is also a signal of what you'll be doing if you're selected.
+    • Submit your public GitHub repository link (and live deployed link, where applicable) through the Google Form.
+    • Name your repository: yourname_regno (e.g. Sam_24BCE77777).
+    • Ensure a clean, incremental commit history. A single “final commit” dump is a red flag, not a shortcut.
+    • Deadline is final. No extensions will be given, so plan your time across the task, README, and deployment.
+On using AI tools
+We know most of you will use AI-assisted coding tools (Copilot, Cursor, ChatGPT, Claude, etc.) while building this. That's normal, and we're not going to pretend otherwise. Original work is still mandatory. Use AI to help you write and debug code, but you must understand every part of what you submit and be able to explain and modify it live if asked in the interview round. Submissions that are clearly a black-box output nobody on the team can walk us through will not move forward, regardless of how polished they look.
+In short: build it yourself, use AI the way you'd use a senior dev sitting next to you, and be ready to talk through your own code.
+
+Track 1: Full-Stack Web Development
+The Live Polling / Quiz Application
+Build a live polling/quiz application where an Admin creates a poll, Participants join using a room code, and everyone's screen updates in real time as votes come in, without needing to refresh the page. This tests full-stack breadth and your understanding of real-time systems, not just whether you can copy a CRUD tutorial.
+Admin Flow
+    • Create Poll: form with question text and 2 to 6 answer options (add/remove options dynamically).
+    • Room Created / Waiting Room: displays a unique room code; shows a live count of participants joining before voting starts; “Begin Voting” button.
+    • Live Results: question displayed with each option as a horizontal bar that visibly grows in real time as votes arrive, plus a live total vote count; “End Poll” button.
+    • Final Results: results locked and frozen; winning option highlighted.
+Participant Flow
+    • Join: single input for room code, “Join” button.
+    • Waiting Room: “You're in, waiting for host to start.” This must be a server-pushed state change, not a polled refresh.
+    • Vote: question and tappable options; on tap, immediate “Vote submitted” confirmation; button disables to block double voting.
+    • Live Results (optional, recommended): participants see the same live-updating bar chart as the admin, proving the broadcast reaches all connected clients, not just the poll creator.
+Submission Checklist
+    • Public GitHub repository link with a README explaining setup and architecture.
+    • Live deployed URL. Both the admin and participant flows should be reachable and usable by someone with no code access.
+
+Track 2: AI / ML
+The RAG (Retrieval-Augmented Generation) Pipeline
+Design and build a basic RAG pipeline from scratch: a system that loads a document, splits it into chunks, embeds those chunks, stores them in a vector store, retrieves relevant chunks for a user query, and passes them to an LLM to generate a grounded answer.
+What You Must Build (end to end, your own implementation)
+    • Document ingestion: load at least one real document (PDF, and ideally also .md or .txt to show you understand loaders aren't PDF-specific).
+    • Chunking: split the document into chunks with a configurable chunk size and overlap.
+    • Embedding: convert chunks into vector embeddings using any embedding model (open-source via HuggingFace, or API-based, your choice, but justify it).
+    • Vector store: store and index the embeddings (FAISS, Chroma, or any vector DB of your choice).
+    • Retrieval: given a user query, retrieve the top-k most relevant chunks via similarity search.
+    • Generation: pass retrieved chunks and the query to an LLM (any provider: Groq, OpenAI, local via Ollama, etc.) and generate a grounded answer.
+Submission Checklist
+    • Public GitHub repository link.
+    • README with architecture explanation and design justifications: why this chunk size, why this embedding model, why this vector store.
+    • Working requirements.txt or pyproject.toml. We will actually try to run it.
+
+Track 3: Cybersecurity
+This is a single track with multiple options inside it, split by difficulty. Pick exactly one option, beginner or intermediate, based on where you're comfortable. Attempting the intermediate option and doing it well counts for more than attempting the beginner option and doing it perfectly, but a well-executed beginner submission with a genuinely sharp report beats a shallow intermediate attempt. Choose honestly.
+Beginner Options (choose one)
+Option A: Harden the App
+We're giving you a small, deliberately insecure Flask app called NoteVault (https://github.com/saksham110206/cybersecuirity.git). It ships with a set of real, common vulnerabilities seeded into it on purpose.
+    • Download the app package (provided separately alongside this document) and run it locally only. Do not deploy it publicly.
+    • Audit the code: look at authentication, how data is stored and displayed, how secrets and configuration are handled, and what else is sitting in the repo.
+    • Fix every issue you find, directly in the code, without breaking the app's functionality.
+    • Write a short REPORT.md: what the issue was, where it lived, what an attacker could concretely do with it, and how you fixed it.
+Optional bonus (counts extra, not required): run a basic network scan, for example nmap, against the app while it runs locally, and add a short section on what a live scan reveals to an outside observer.
+Option B: Network Reconnaissance Report
+Set up a small local or sandboxed target of your own (this can be the NoteVault app from Option A while it's running, a VM, or any service you legitimately control) and use standard, legal tools such as nmap to enumerate open ports and services. Submit a short report: what you found, what each open port or service implies about attack surface, and what hardening steps you'd recommend.
+Do not scan anything you don't own or have explicit permission to scan, including public IPs, other people's devices, or campus infrastructure.
+Intermediate Options (choose one)
+Option C: Log Analysis Tool
+We're providing a sample authentication log file (auth_sample.log) containing a mix of normal activity and suspicious patterns. Build a tool, in any language, that parses the log and flags suspicious behavior: repeated failed logins from one source, unusual login times, logins from IPs never seen for that user, or patterns suggesting username enumeration.
+    • Output a clear report (console output, file, or a simple dashboard, your choice) listing what it flagged and why.
+    • Your report should explain, in your own words, why each flagged pattern is suspicious and what real-world mitigation would address it, for example rate limiting, account lockout, or alerting on new-IP logins.
+Option D: Secure API Design
+Build a small API, any framework, implementing proper authentication (JWT), rate limiting, and input validation. Then write a short doc explaining, for each security measure you added, the specific attack it defends against and how you'd verify it actually works, for example what request would fail, and why.
+Submission Checklist (all Cybersecurity options)
+    • Public GitHub repository link named yourname_regno.
+    • Your write-up or report as a Markdown file in the repo.
+    • For Option A specifically: no live deployment needed or expected. Keep it local, submit the fixed code and the report.
+
+Track 4: Frontend & UI/UX (Design Systems)
+This track is for people who design real, usable interfaces, not just posters or social creatives, and who also want to build them in code. If you're comfortable in Figma, think in components and design systems, and can translate that into clean HTML/CSS or a component library, this is your track. This is a Technical Team track: the deliverable must include working code, not a design file alone.
+The Task: Build a Design System, Not a Concept Pitch
+We are not asking you to redesign the SDC website in this round. That is a real decision for the club to make deliberately, not something to hand out as an unpaid task-round exercise, and it would not be fair to collect everyone's concept work for something you may not end up owning or being credited for. Instead, show us your design thinking and execution ability directly, on a subject you choose.
+What You Must Deliver
+    • A component-level design system in Figma: a defined type scale, a color palette (primary, secondary, neutral, and semantic colors such as success and error), a spacing scale, and a set of core components built with real components and variants and auto layout, not flat one-off shapes. At minimum: buttons in multiple states, cards, form inputs, a navbar, and a modal.
+    • One assembled demo screen: pick any single realistic use case of your own choosing, for example an event registration page, a hackathon leaderboard, or a team directory, and assemble one full screen using only the components from your system.
+    • A coded build of that one screen: implement it in code (plain HTML/CSS/JS, Tailwind, or a React setup, your choice) so it closely matches your Figma file. It must be responsive across mobile and desktop, not just desktop-only.
+    • A short design rationale (in the repo): explain your type, color, and spacing choices, and at least one accessibility consideration you accounted for, such as color contrast or touch target sizing.
+What We're Evaluating
+    • Visual design quality and consistency: does it look like a coherent system, not a one-off screen.
+    • Figma craft: components, variants, auto layout, and organization, not just a static mockup.
+    • Fidelity between design and code: does the build actually match what you designed.
+    • Responsiveness and basic accessibility: does it hold up on a small screen and is it readable.
+    • Your rationale: can you explain why you made the choices you made, not just that you made them.
+Submission Checklist
+    • Figma file link with sharing set to “Anyone with the link can view.”
+    • Public GitHub repository link named yourname_regno, containing the coded build and your rationale doc.
+    • Live deployed URL for the coded build.
+
+Questions about any track can be directed to the Technical Team lead before the deadline. All the best.
