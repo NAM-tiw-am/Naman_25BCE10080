@@ -1,0 +1,36 @@
+Python Programming Quick Reference Guide
+Version: 2024 Edition
+
+1. What is Python?
+Python is a high-level, interpreted programming language created by Guido van Rossum and first released in 1991. It emphasizes code readability with its use of significant indentation. Python supports multiple programming paradigms: procedural, object-oriented, and functional. It is the most popular language for data science, web development, automation, and artificial intelligence.
+
+2. Data Types
+Python has several built-in data types. Integers (int) represent whole numbers like 42 or -7. Floats represent decimal numbers like 3.14 or -0.001. Strings (str) are sequences of characters enclosed in quotes. Booleans (bool) are either True or False. Lists are ordered, mutable collections written with square brackets: [1, 2, 3]. Tuples are ordered, immutable collections written with parentheses: (1, 2, 3). Dictionaries (dict) store key-value pairs: {"name": "Alice", "age": 30}. Sets are unordered collections of unique elements: {1, 2, 3}.
+
+3. Control Flow
+If-elif-else statements control conditional execution. For loops iterate over sequences like lists, strings, or ranges. While loops repeat as long as a condition is True. The "break" keyword exits a loop early. The "continue" keyword skips to the next iteration. List comprehensions provide a concise way to create lists: [x**2 for x in range(10)].
+
+4. Functions
+Functions are defined using the "def" keyword. They can accept positional arguments, keyword arguments, default values, and variable-length arguments (*args and **kwargs). Lambda functions are anonymous one-line functions: lambda x: x + 1. Decorators modify function behavior using the @decorator syntax. Common built-in functions include len(), range(), enumerate(), zip(), map(), and filter().
+
+5. Object-Oriented Programming
+Classes are blueprints for creating objects. The __init__ method is the constructor. "self" refers to the current instance. Inheritance allows a child class to inherit attributes and methods from a parent class. Encapsulation hides internal details using private attributes (prefix with underscore). Polymorphism allows different classes to have methods with the same name but different behavior.
+
+6. File Handling
+Open files using the open() function with modes: "r" (read), "w" (write), "a" (append), "rb" (read binary). Always use the "with" statement for automatic file closing: with open("file.txt", "r") as f. Read entire file with f.read(), line by line with f.readline(), or all lines as a list with f.readlines(). Write with f.write() or f.writelines().
+
+7. Error Handling
+Use try-except blocks to handle exceptions. Common exceptions include ValueError, TypeError, KeyError, IndexError, FileNotFoundError, and ZeroDivisionError. The "finally" block executes regardless of whether an exception occurred. The "raise" keyword allows you to throw custom exceptions. Custom exceptions are created by inheriting from the Exception class.
+
+8. Popular Python Libraries
+NumPy: Numerical computing with arrays and matrices. Core operation: np.array(), np.mean(), np.reshape().
+Pandas: Data manipulation with DataFrames. Core operations: pd.read_csv(), df.groupby(), df.merge().
+Matplotlib: Data visualization. Core functions: plt.plot(), plt.bar(), plt.scatter(), plt.show().
+Requests: HTTP library for making API calls. Core: requests.get(), requests.post().
+Flask: Lightweight web framework. Django: Full-featured web framework.
+
+9. Virtual Environments
+Virtual environments isolate project dependencies. Create with: python -m venv myenv. Activate on Windows: myenv\Scripts\activate. Activate on Mac/Linux: source myenv/bin/activate. Install packages with pip: pip install package_name. Freeze dependencies: pip freeze > requirements.txt. Install from requirements: pip install -r requirements.txt.
+
+10. Python Best Practices
+Follow PEP 8 style guide for formatting. Use meaningful variable names. Write docstrings for functions and classes. Keep functions small and focused (Single Responsibility Principle). Use type hints for better code readability: def greet(name: str) -> str. Write unit tests using pytest or unittest. Use logging instead of print statements in production code.
