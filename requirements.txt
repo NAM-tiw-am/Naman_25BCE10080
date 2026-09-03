@@ -1,0 +1,25 @@
+# RAG Pipeline Dependencies
+# Install with: pip install -r requirements.txt
+
+# LangChain core + community integrations
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-core>=0.3.0
+langchain-text-splitters>=0.3.0
+
+# Groq LLM provider
+langchain-groq>=0.2.0
+
+# HuggingFace embeddings
+langchain-huggingface>=0.1.0
+sentence-transformers>=3.0.0
+
+# ChromaDB vector store
+langchain-chroma>=0.2.0
+chromadb>=0.5.0
+
+# PDF loading
+pypdf>=4.0.0
+
+# Environment variable management
+python-dotenv>=1.0.0
